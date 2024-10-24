@@ -11,7 +11,7 @@ build:
 
 .PHONY: start
 start:
-	docker-compose up
+	docker-compose up -d
 	./bin/${BINARY_NAME}
 
 .PHONY: build_start
@@ -19,17 +19,13 @@ build_start: build start
 
 .PHONY: start_watch
 start_watch: 
-	# docker-compose up
+	docker-compose up -d
 	$$(go env GOPATH)/bin/air -c .air.toml
 	
-.PHONY: test
-test:
-	go test -tags=unit ./... -count=1
-
-.PHONY: test_integration
-test_integration:
-	docker-compose up --no-recreate -d pybe-db configs-api transaction-kit
-	go test -tags=integration ./... -count=1
+.PHONY: test_e2e
+test_e2e:
+	docker-compose up -d
+	go test ./... -run TestE2E
 	
 .PHONY: stop
 stop:

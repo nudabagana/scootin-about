@@ -1,0 +1,499 @@
+{
+	"info": {
+		"_postman_id": "ad400ec1-5ed4-43bf-8b33-729acf96ca58",
+		"name": "Scootin_bout",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7974412"
+	},
+	"item": [
+		{
+			"name": "testing",
+			"item": [
+				{
+					"name": "localhost:8090/testing/scooters",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/testing/scooters",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"testing",
+								"scooters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8090/testing/scooters/:uuid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/testing/scooters/ee4ff310-4daf-40ae-beed-68946d16c48c",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"testing",
+								"scooters",
+								"ee4ff310-4daf-40ae-beed-68946d16c48c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8090/testing/scooters",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"abc\",\n    \"occupied\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/testing/scooters",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"testing",
+								"scooters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8090/testing/scooters/:uuid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/testing/scooters/0d5ae253-20aa-4c81-8e7a-31e4d36e0a8a",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"testing",
+								"scooters",
+								"0d5ae253-20aa-4c81-8e7a-31e4d36e0a8a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8090/testing/clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/testing/clients",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"testing",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8090/testing/clients/:uuid",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/testing/clients/84eb800d-a7e6-4f46-a5b8-0ea6f2c32184",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"testing",
+								"clients",
+								"84eb800d-a7e6-4f46-a5b8-0ea6f2c32184"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8090/testing/clients",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"abc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/testing/clients",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"testing",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8090/testing/clients/:uuid",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/testing/clients/d37c6ede-d6b2-4ede-9af3-bb1f21a57128",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"testing",
+								"clients",
+								"d37c6ede-d6b2-4ede-9af3-bb1f21a57128"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8090/testing/locations",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/testing/locations",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"testing",
+								"locations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8090/health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/health",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "localhost:8090/client/scooters All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/client/scooters?top_left_lat=90&top_left_long=-180&bottom_right_lat=-90&bottom_right_long=180",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"client",
+								"scooters"
+							],
+							"query": [
+								{
+									"key": "top_left_lat",
+									"value": "90"
+								},
+								{
+									"key": "top_left_long",
+									"value": "-180"
+								},
+								{
+									"key": "bottom_right_lat",
+									"value": "-90"
+								},
+								{
+									"key": "bottom_right_long",
+									"value": "180"
+								},
+								{
+									"key": "occupied",
+									"value": "false",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8090/client/scooters Ottawa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/client/scooters?top_left_lat=45.47&top_left_long=-76.05&bottom_right_lat=44.95&bottom_right_long=-75.30",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"client",
+								"scooters"
+							],
+							"query": [
+								{
+									"key": "top_left_lat",
+									"value": "45.47"
+								},
+								{
+									"key": "top_left_long",
+									"value": "-76.05"
+								},
+								{
+									"key": "bottom_right_lat",
+									"value": "44.95"
+								},
+								{
+									"key": "bottom_right_long",
+									"value": "-75.30"
+								},
+								{
+									"key": "occupied",
+									"value": "false",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8090/client/scooters Montreal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8090/client/scooters?top_left_lat=45.72&top_left_long=-74.05&bottom_right_lat=45.40&bottom_right_long=-73.45",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"client",
+								"scooters"
+							],
+							"query": [
+								{
+									"key": "top_left_lat",
+									"value": "45.72"
+								},
+								{
+									"key": "top_left_long",
+									"value": "-74.05"
+								},
+								{
+									"key": "bottom_right_lat",
+									"value": "45.40"
+								},
+								{
+									"key": "bottom_right_long",
+									"value": "-73.45"
+								},
+								{
+									"key": "occupied",
+									"value": "false",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "scooter",
+			"item": [
+				{
+					"name": "localhost:8090/scooter/:uuid/start-trip",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/scooter/ee4ff310-4daf-40ae-beed-68946d16c48c/start-trip",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"scooter",
+								"ee4ff310-4daf-40ae-beed-68946d16c48c",
+								"start-trip"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8090/scooter/:uuid/end-trip",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/scooter/ee4ff310-4daf-40ae-beed-68946d16c48c/end-trip",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"scooter",
+								"ee4ff310-4daf-40ae-beed-68946d16c48c",
+								"end-trip"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8090/scooter/:uuid/report-location",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"longitude\": -75.6880,\n    \"latitude\": 45.4290\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8090/scooter/ee4ff310-4daf-40ae-beed-68946d16c48c/report-location",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"scooter",
+								"ee4ff310-4daf-40ae-beed-68946d16c48c",
+								"report-location"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "EXAMPLE",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

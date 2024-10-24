@@ -1,11 +1,16 @@
 package main
 
 import (
+	"log"
 	"net/http"
 	"os"
+	"os/signal"
+	"syscall"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/nudabagana/scootin-about/api"
+	"github.com/nudabagana/scootin-about/data"
 )
 
 func main() {
@@ -22,8 +27,24 @@ func main() {
 		AllowWildcard: true,
 	}))
 
+	api.Init(router)
+	err := data.Init()
+	if err != nil {
+		return
+	}
+
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+
 	router.GET(`/health`, HealthGET)
-	router.Run(":" + port)
+	go func() {
+		if err := router.Run(":" + port); err != nil {
+			log.Fatalf("Failed to run server: %v", err)
+		}
+	}()
+
+	<-quit
+	data.Stop()
 }
 
 func HealthGET(c *gin.Context) {

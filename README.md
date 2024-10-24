@@ -12,7 +12,12 @@ brew install go
 
 ## Running locally
 
-TBD
+```bash
+# Run
+make start
+# Stop
+make stop
+```
 
 ## Local development
 
@@ -31,13 +36,10 @@ make run_watch
 ## Running tests
 
 Run unit tests
+(project has no logic, hence no unit tests)
+
+Run e2e tests
 
 ```
-make test
-```
-
-Run integration tests
-
-```
-make test_integration
+make test_e2e
 ```

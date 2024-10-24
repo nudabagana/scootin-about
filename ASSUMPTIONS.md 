@@ -4,4 +4,3 @@
 - will give names to scooters and clients for easier identification.
 - will separate when client and when scooter sends info (even tho it seems mixed from point 2)
 - will keeping track of all past locations in case history is needed 
-- will assume person can ride only 1 scooter at 1 time

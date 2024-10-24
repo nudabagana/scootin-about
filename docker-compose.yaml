@@ -1,1 +1,19 @@
-# TO DO
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: scootdb
+      POSTGRES_USER: tom_scoot
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+      SERVICE_NAME: postgress
+      SERVICE_PORT: 5432
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  postgres_data:
