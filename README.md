@@ -51,3 +51,7 @@ Open postman collection [here](/postman/Scootin_bout.postman_collection.json).
 ## Endpoint docs
 
 Check endpoint docs using swagger in `http://localhost:8090/swagger/index.html`
+
+## Other
+
+Mini Trello board used for the project can be found [here](https://trello.com/b/PKvv40et/saily-24).

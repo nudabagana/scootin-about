@@ -22,10 +22,10 @@ CREATE TABLE IF NOT EXISTS locations (
 );
 
 -- Insert sample data
-INSERT INTO clients (name) VALUES 
-    ('Aiden'),
-    ('Sophie'),
-    ('Lucas');
+INSERT INTO clients (uuid, name) VALUES 
+    ('f50e26c5-592b-4da3-b4eb-387d68bececa', 'Aiden'),
+    ('84eb800d-a7e6-4f46-a5b8-0ea6f2c32184', 'Sophie'),
+    ('82e2a4a2-f562-43a6-baf5-8cdaa1433a98', 'Lucas');
 
 INSERT INTO scooters (name, occupied) VALUES 
     ('Ottawa Scooter 1', FALSE),
