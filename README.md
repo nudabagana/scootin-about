@@ -12,6 +12,8 @@ brew install go
 
 ## Running locally
 
+On your first start, db will be created and populated with some test data. Also simulation will start as soon as the app starts.
+
 ```bash
 # Run
 make start
