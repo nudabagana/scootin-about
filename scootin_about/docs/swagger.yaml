@@ -1,0 +1,180 @@
+definitions:
+  api.ReportLocationRequest:
+    properties:
+      latitude:
+        type: number
+      longitude:
+        type: number
+    type: object
+  api.ScootersResponse:
+    properties:
+      count:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/data.ScooterWithLocation'
+        type: array
+    type: object
+  data.Location:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      latitude:
+        type: number
+      longitude:
+        type: number
+      scooter_uuid:
+        type: string
+    type: object
+  data.ScooterWithLocation:
+    properties:
+      latitude:
+        type: number
+      longitude:
+        type: number
+      name:
+        type: string
+      occupied:
+        type: boolean
+      uuid:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /client/scooters:
+    get:
+      consumes:
+      - application/json
+      description: Fetches scooters within a defined rectangular area using latitude
+        and longitude boundaries.
+      parameters:
+      - description: Top left latitude
+        in: query
+        name: top_left_lat
+        required: true
+        type: number
+      - description: Top left longitude
+        in: query
+        name: top_left_long
+        required: true
+        type: number
+      - description: Bottom right latitude
+        in: query
+        name: bottom_right_lat
+        required: true
+        type: number
+      - description: Bottom right longitude
+        in: query
+        name: bottom_right_long
+        required: true
+        type: number
+      - description: Filter by occupancy status
+        in: query
+        name: occupied
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.ScootersResponse'
+        "400":
+          description: Bad Request
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Retrieve scooters in a specified area
+      tags:
+      - client
+  /scooter/{uuid}/end-trip:
+    put:
+      consumes:
+      - application/json
+      description: Set the scooter's status to not occupied (end trip).
+      parameters:
+      - description: Scooter UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: End a trip for a scooter
+      tags:
+      - scooter
+  /scooter/{uuid}/report-location:
+    post:
+      consumes:
+      - application/json
+      description: Updates the location of the specified scooter with latitude and
+        longitude.
+      parameters:
+      - description: Scooter UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      - description: Location data
+        in: body
+        name: location
+        required: true
+        schema:
+          $ref: '#/definitions/api.ReportLocationRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/data.Location'
+        "400":
+          description: Bad Request
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Report the location of a scooter
+      tags:
+      - scooter
+  /scooter/{uuid}/start-trip:
+    put:
+      consumes:
+      - application/json
+      description: Set the scooter's status to occupied (start trip).
+      parameters:
+      - description: Scooter UUID
+        in: path
+        name: uuid
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema: {}
+        "404":
+          description: Not Found
+          schema: {}
+        "500":
+          description: Internal Server Error
+          schema: {}
+      summary: Start a trip for a scooter
+      tags:
+      - scooter
+swagger: "2.0"

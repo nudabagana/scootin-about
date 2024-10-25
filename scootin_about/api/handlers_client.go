@@ -12,6 +12,26 @@ type _clientHandler struct{}
 
 var clientHandler = _clientHandler{}
 
+type ScootersResponse struct {
+	Data  []data.ScooterWithLocation `json:"data"`
+	Count int                        `json:"count"`
+}
+
+// getScooters godoc
+// @Summary Retrieve scooters in a specified area
+// @Description Fetches scooters within a defined rectangular area using latitude and longitude boundaries.
+// @Tags client
+// @Accept json
+// @Produce json
+// @Param top_left_lat query float64 true "Top left latitude"
+// @Param top_left_long query float64 true "Top left longitude"
+// @Param bottom_right_lat query float64 true "Bottom right latitude"
+// @Param bottom_right_long query float64 true "Bottom right longitude"
+// @Param occupied query bool false "Filter by occupancy status"
+// @Success 200 {object} ScootersResponse
+// @Failure 400 {object} interface{}
+// @Failure 500 {object} interface{}
+// @Router /client/scooters [get]
 func (_clientHandler) getScooters(c *gin.Context) {
 	topLeftLatStr := c.Query("top_left_lat")
 	topLeftLongStr := c.Query("top_left_long")
@@ -55,8 +75,8 @@ func (_clientHandler) getScooters(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{
-		"data":  scooters,
-		"count": len(scooters),
+	c.JSON(http.StatusOK, ScootersResponse{
+		Data:  scooters,
+		Count: len(scooters),
 	})
 }

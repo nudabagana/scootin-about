@@ -11,6 +11,17 @@ type _scooterHandler struct{}
 
 var scooterHandler = _scooterHandler{}
 
+// tripStart godoc
+// @Summary Start a trip for a scooter
+// @Description Set the scooter's status to occupied (start trip).
+// @Tags scooter
+// @Accept json
+// @Produce json
+// @Param uuid path string true "Scooter UUID"
+// @Success 200 {object} interface{}
+// @Failure 404 {object} interface{}
+// @Failure 500 {object} interface{}
+// @Router /scooter/{uuid}/start-trip [put]
 func (_scooterHandler) tripStart(ginCtx *gin.Context) {
 	uuid := ginCtx.Param("uuid")
 
@@ -27,6 +38,17 @@ func (_scooterHandler) tripStart(ginCtx *gin.Context) {
 	ginCtx.JSON(http.StatusOK, gin.H{"message": "Trip started", "scooter_uuid": uuid})
 }
 
+// endTrip godoc
+// @Summary End a trip for a scooter
+// @Description Set the scooter's status to not occupied (end trip).
+// @Tags scooter
+// @Accept json
+// @Produce json
+// @Param uuid path string true "Scooter UUID"
+// @Success 200 {object} interface{}
+// @Failure 404 {object} interface{}
+// @Failure 500 {object} interface{}
+// @Router /scooter/{uuid}/end-trip [put]
 func (_scooterHandler) endTrip(ginCtx *gin.Context) {
 	uuid := ginCtx.Param("uuid")
 
@@ -48,6 +70,18 @@ type ReportLocationRequest struct {
 	Longitude float64 `json:"longitude"`
 }
 
+// reportLocation godoc
+// @Summary Report the location of a scooter
+// @Description Updates the location of the specified scooter with latitude and longitude.
+// @Tags scooter
+// @Accept json
+// @Produce json
+// @Param uuid path string true "Scooter UUID"
+// @Param location body ReportLocationRequest true "Location data"
+// @Success 201 {object} data.Location
+// @Failure 400 {object} interface{}
+// @Failure 500 {object} interface{}
+// @Router /scooter/{uuid}/report-location [post]
 func (_scooterHandler) reportLocation(ginCtx *gin.Context) {
 	var req ReportLocationRequest
 

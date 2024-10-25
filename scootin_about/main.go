@@ -11,6 +11,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/nudabagana/scootin-about/api"
 	"github.com/nudabagana/scootin-about/data"
+	_ "github.com/nudabagana/scootin-about/docs"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 func main() {
@@ -37,6 +40,7 @@ func main() {
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 
 	router.GET(`/health`, HealthGET)
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	go func() {
 		if err := router.Run(":" + port); err != nil {
 			log.Fatalf("Failed to run server: %v", err)

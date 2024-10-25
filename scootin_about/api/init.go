@@ -13,7 +13,6 @@ const (
 func Init(router *gin.Engine) {
 	scooterGroup := router.Group("/scooter")
 	scooterGroup.Use(AuthMiddleware())
-
 	scooterGroup.PUT("/:uuid/start-trip", scooterHandler.tripStart)
 	scooterGroup.PUT("/:uuid/end-trip", scooterHandler.endTrip)
 	scooterGroup.POST("/:uuid/report-location", scooterHandler.reportLocation)

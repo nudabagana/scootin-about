@@ -43,3 +43,11 @@ Run e2e tests
 ```
 make test_e2e
 ```
+
+## Test manually
+
+Open postman collection [here](/postman/Scootin_bout.postman_collection.json).
+
+## Endpoint docs
+
+Check endpoint docs using swagger in `http://localhost:8090/swagger/index.html`
